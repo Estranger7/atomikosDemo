@@ -1,0 +1,60 @@
+spring:
+  jta:
+    atomikos:
+      datasource:
+        master:
+          xa-properties.driverClassName: com.mysql.cj.jdbc.Driver
+          xa-properties.url: jdbc:mysql://192.168.1.193:3306/cash_payment_test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          xa-properties.username: root
+          xa-properties.password: "jinbei"
+          unique-resource-name: master
+          borrow-connection-timeout: 10000
+          max-lifetime: 20000
+          min-pool-size: 3
+          max-pool-size: 25
+          xa-data-source-class-name: com.alibaba.druid.pool.xa.DruidXADataSource
+
+          spring.jta.atomikos.datasource.spring.xa-properties.initialSize: 10
+          spring.jta.atomikos.datasource.spring.xa-properties.minIdle: 20
+          spring.jta.atomikos.datasource.spring.xa-properties.maxActive: 100
+          ## 配置获取连接等待超时的时间
+          spring.jta.atomikos.datasource.spring.xa-properties.maxWait: 60000
+          # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+          spring.jta.atomikos.datasource.spring.xa-properties.timeBetweenEvictionRunsMillis: 60000
+          # 配置一个连接在池中最小生存的时间，单位是毫秒
+          spring.jta.atomikos.datasource.spring.xa-properties.minEvictableIdleTimeMillis: 300000
+          spring.jta.atomikos.datasource.spring.xa-properties.testWhileIdle: true
+          spring.jta.atomikos.datasource.spring.xa-properties.testOnBorrow: false
+          spring.jta.atomikos.datasource.spring.xa-properties.testOnReturn: false
+          # 打开PSCache，并且指定每个连接上PSCache的大小
+          spring.jta.atomikos.datasource.spring.xa-properties.poolPreparedStatements: true
+          spring.jta.atomikos.datasource.spring.xa-properties.maxPoolPreparedStatementPerConnectionSize: 20
+          # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+#          spring.jta.atomikos.datasource.spring.xa-properties.filters=stat,slf4j,wall
+        slave:
+          xa-properties.driverClassName: com.mysql.cj.jdbc.Driver
+          xa-properties.url: jdbc:mysql://192.168.1.194:3306/cash_payment_test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          xa-properties.username: root
+          xa-properties.password: "P@ssw0rd"
+          unique-resource-name: slave1
+          borrow-connection-timeout: 10000
+          max-lifetime: 20000
+          min-pool-size: 3
+          max-pool-size: 25
+          xa-data-source-class-name: com.alibaba.druid.pool.xa.DruidXADataSource
+          spring.jta.atomikos.datasource.spring.xa-properties.initialSize: 10
+          spring.jta.atomikos.datasource.spring.xa-properties.minIdle: 20
+          spring.jta.atomikos.datasource.spring.xa-properties.maxActive: 100
+                ## 配置获取连接等待超时的时间
+          spring.jta.atomikos.datasource.spring.xa-properties.maxWait: 60000
+                # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+          spring.jta.atomikos.datasource.spring.xa-properties.timeBetweenEvictionRunsMillis: 60000
+                # 配置一个连接在池中最小生存的时间，单位是毫秒
+          spring.jta.atomikos.datasource.spring.xa-properties.minEvictableIdleTimeMillis: 300000
+          spring.jta.atomikos.datasource.spring.xa-properties.testWhileIdle: true
+          spring.jta.atomikos.datasource.spring.xa-properties.testOnBorrow: false
+          spring.jta.atomikos.datasource.spring.xa-properties.testOnReturn: false
+                # 打开PSCache，并且指定每个连接上PSCache的大小
+          spring.jta.atomikos.datasource.spring.xa-properties.poolPreparedStatements: true
+          spring.jta.atomikos.datasource.spring.xa-properties.maxPoolPreparedStatementPerConnectionSize: 20
+

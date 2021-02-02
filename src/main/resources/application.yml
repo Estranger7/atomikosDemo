@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /atomokosDemo
+
+spring:
+  profiles:
+    include: dev
+  application:
+    name: atomokosDemo
+
+mybatis:
+  typeAliasesPackage: com.gkoudai.settlement.domain
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  configuration:
+    mapUnderscoreToCamelCase: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+

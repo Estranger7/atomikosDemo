@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.estranger.www.atomikos.mapper.UserAccountMapper">
+  <resultMap id="BaseResultMap" type="com.estranger.www.atomikos.domain.UserAccount">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="balance_price" jdbcType="DECIMAL" property="balancePrice" />
+    <result column="withdrawal_price" jdbcType="DECIMAL" property="withdrawalPrice" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, uid, balance_price, withdrawal_price, create_time, update_time
+  </sql>
+
+  <insert id="insertSelective" parameterType="com.estranger.www.atomikos.domain.UserAccount">
+    insert into tb_user_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="balancePrice != null">
+        balance_price,
+      </if>
+      <if test="withdrawalPrice != null">
+        withdrawal_price,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="balancePrice != null">
+        #{balancePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="withdrawalPrice != null">
+        #{withdrawalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+</mapper>
