@@ -1,5 +1,5 @@
 package com.estranger.www.atomikos.service;
 
-public interface MerchantInfoService {
+public interface TestService {
     void test();
 }

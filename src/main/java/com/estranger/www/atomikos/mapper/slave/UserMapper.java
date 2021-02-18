@@ -1,4 +1,4 @@
-package com.estranger.www.atomikos.mapper;
+package com.estranger.www.atomikos.mapper.slave;
 
 
 import com.estranger.www.atomikos.domain.User;

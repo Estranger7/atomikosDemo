@@ -1,6 +1,6 @@
 package com.estranger.www.atomikos.controller;
 
-import com.estranger.www.atomikos.service.MerchantInfoService;
+import com.estranger.www.atomikos.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @Autowired
-    private MerchantInfoService merchantInfoService;
+    private TestService testService;
 
-    @RequestMapping("/mockHomePage")
-    public void selectMockDetail() {
-        merchantInfoService.test();
+    @RequestMapping("/testAtomikos")
+    public void testAtomikos() {
+        testService.test();
     }
 }
